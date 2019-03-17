@@ -1,0 +1,79 @@
+.carousel-wrapper {
+  position: relative;
+  text-align: center;
+  font-size: 2.5em;
+  margin: 10% 5%;
+}
+.carousel-wrapper .carousel-item {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 489px 50px;
+  opacity: 0;
+  transition: all 1s ease-in-out;
+  border: 1px solid white;
+}
+.carousel-wrapper .carousel-item .text {
+  position: absolute;
+  display: block;
+  color: transparent;
+  transition-property: color;
+  transition: color 5s;
+}
+.carousel-wrapper .carousel-item #par {
+  position: unset;
+}
+.carousel-wrapper .carousel-item .arrow {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 50px;
+  height: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background: url("http://haloxp.com/codepen/carousel-arrow-dark.png") 50% 50%/20px no-repeat;
+}
+.carousel-wrapper .carousel-item .arrow.arrow-prev {
+  left: 0;
+}
+.carousel-wrapper .carousel-item .arrow.arrow-next {
+  right: 0;
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+.carousel-wrapper .carousel-item.light {
+  transition: all 2s ease-in-out;
+}
+.carousel-wrapper .carousel-item.light .arrow {
+  background: url("http://haloxp.com/codepen/carousel-arrow-light.png") 50% 50%/20px no-repeat;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+  .carousel-wrapper .carousel-item .arrow, .carousel-wrapper .carousel-item.light .arrow {
+    background-size: 10px;
+    background-position: 10px 50%;
+  }
+}
+.carousel-wrapper [id^=target-item] {
+  display: none;
+}
+.carousel-wrapper *:target ~ .item-1 {
+  opacity: 0;
+}
+.carousel-wrapper #target-item-1:target ~ .item-1 {
+  z-index: 1;
+  opacity: 1;
+  background-image: url("./sum.jpg");
+}
+.carousel-wrapper #target-item-2:target ~ .item-2 {
+  z-index: 2;
+  opacity: 1;
+  background-image: url("./fall.jpg");
+}
+.carousel-wrapper #target-item-3:target ~ .item-3 {
+  z-index: 3;
+  opacity: 1;
+  background-image: url("./winter.jpg");
+}
+
+/*# sourceMappingURL=style.css.map */

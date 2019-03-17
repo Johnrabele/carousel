@@ -1,0 +1,44 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Carousel</title>
+
+  <link rel="stylesheet" href="style.css">
+
+</head>
+    <body>
+        <div class="carousel-wrapper">
+            <span id="target-item-1"></span>
+            <span id="target-item-2"></span>
+            <span id="target-item-3"></span>
+            <div class="carousel-item item-1 light">
+                <h2 class="text" style="position: relative;">one</h2>
+                <p class="text" id="par">content</p>
+                <a class="arrow arrow-prev" href="#target-item-3"></a>
+                <a class="arrow arrow-next" href="#target-item-2"></a>      
+            </div>
+            <div class="carousel-item item-2 light">
+                <h2 class="text" style="position: relative;">two</h2>
+                <p class="text" id="par">content</p>
+                <a class="arrow arrow-prev" href="#target-item-1"></a>
+                <a class="arrow arrow-next" href="#target-item-3"></a>
+            </div>
+            <div class="carousel-item item-3 light">
+                <h2 class="text" style="position: relative;">three</h2>
+                <p class="text" id="par">content</p>
+                <a class="arrow arrow-prev" href="#target-item-2"></a>
+                <a class="arrow arrow-next" href="#target-item-1"></a>
+            </div>  
+        </div>
+        <script>
+            setTimeout(() => {
+                Array.from(document.querySelectorAll('.text')).forEach(
+                    element => element.classList.add('color')
+                )
+            }, 0);
+            </script>
+    </body>
+</html>
