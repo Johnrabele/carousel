@@ -4,41 +4,101 @@
 <head>
   <meta charset="utf-8">
 
-  <title>Carousel</title>
+  <title>carousel</title>
 
   <link rel="stylesheet" href="style.css">
 
 </head>
     <body>
         <div class="carousel-wrapper">
-            <span id="target-item-1"></span>
-            <span id="target-item-2"></span>
-            <span id="target-item-3"></span>
-            <div class="carousel-item item-1 light">
+            <span id="item-1"></span>
+            <span id="item-2"></span>
+            <span id="item-3"></span>
+            <div class="carousel-item item-1 light current">
                 <h2 class="text" style="position: relative;">one</h2>
                 <p class="text" id="par">content</p>
-                <a class="arrow arrow-prev" href="#target-item-3"></a>
-                <a class="arrow arrow-next" href="#target-item-2"></a>      
+                <a class="arrow arrow-prev"></a>
+                <a class="arrow arrow-next"></a>      
             </div>
-            <div class="carousel-item item-2 light">
+            <div class="carousel-item item-2 light next">
                 <h2 class="text" style="position: relative;">two</h2>
                 <p class="text" id="par">content</p>
-                <a class="arrow arrow-prev" href="#target-item-1"></a>
-                <a class="arrow arrow-next" href="#target-item-3"></a>
+                <a class="arrow arrow-prev"></a>
+                <a class="arrow arrow-next"></a>
             </div>
-            <div class="carousel-item item-3 light">
+            <div class="carousel-item item-3 light prev">
                 <h2 class="text" style="position: relative;">three</h2>
                 <p class="text" id="par">content</p>
-                <a class="arrow arrow-prev" href="#target-item-2"></a>
-                <a class="arrow arrow-next" href="#target-item-1"></a>
+                <a class="arrow arrow-prev"></a>
+                <a class="arrow arrow-next"></a>
             </div>  
         </div>
+
+        <!-- <div class="arrow-next">click me</div> -->
+
         <script>
             setTimeout(() => {
                 Array.from(document.querySelectorAll('.text')).forEach(
                     element => element.classList.add('color')
                 )
             }, 0);
-            </script>
+            
+            Array.from(document.querySelectorAll('.carousel-wrapper .arrow-next'))
+            .map(arrow => arrow.addEventListener('click', (event) => {
+
+                const current = document.querySelector('.current');
+                const next = document.querySelector('.next');
+                const prev = document.querySelector('.prev');
+
+                current.classList.add('prev');
+                current.classList.remove('current');
+
+                next.classList.add('current');
+                next.classList.remove('next');
+
+                prev.classList.add('next');
+                prev.classList.remove('prev');
+
+                hideForASec(prev);
+            }))
+
+            Array.from(document.querySelectorAll('.arrow-prev'))
+            .map(arrow => arrow.addEventListener('click', (event) => {
+
+                const current = document.querySelector('.current');
+                const next = document.querySelector('.next');
+                const prev = document.querySelector('.prev');
+
+                current.classList.add('next');
+                current.classList.remove('current');
+
+                prev.classList.add('current');
+                prev.classList.remove('prev');
+
+                next.classList.add('prev');
+                next.classList.remove('next');
+
+                hideForASec(next);
+
+                // swapClasses(document.querySelector('.carousel-wrapper'), [
+                //     ['current', 'next'],
+                //     ['next', 'prev'],
+                //     ['prev', 'current']
+                // ]);
+            }));
+
+            function swapClasses(parent, classes) {
+            }
+
+            function hideForASec(element) {
+                const oldDisplay = element.style.display;
+                element.style.display = 'none';
+                setTimeout(() => { element.style.display = oldDisplay; }, 1000);
+            }
+
+            // next alt: document.querySelector('.next')
+            //.style.backgroundPositionX = document.querySelector('.carousel-wrapper').offsetWidth + 'px'
+
+        </script>
     </body>
 </html>

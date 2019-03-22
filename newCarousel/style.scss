@@ -1,4 +1,5 @@
 // *-mobile-*
+
 .carousel-wrapper {
     position: relative;
     text-align: center;
@@ -11,25 +12,22 @@
       bottom: 0;
       left: 0;
       right: 0;
-      padding: 489px 50px;
-      opacity: 0;
+      padding: 50% 50% 20% 50%;
       transition: all 1s ease-in-out;
       border: 1px solid white;
+      background-repeat: no-repeat;
+      background-size: cover;
 
     .text { 
       position: absolute;
       display: block;
       color: transparent;
       transition-property: color;
-      transition: color 5s;
+      // transition: color 5s;
     }
 
-    #par {
-    position: unset;
-      }
-
       .arrow {
-      position: absolute;
+      position: fixed;
       top: 0;
       display: block;
       width: 50px;
@@ -49,48 +47,56 @@
       }
 
       &.light {
-        transition: all  2s ease-in-out;
+        transition: all  1s ease-in-out;
+        
   
-        .arrow {
-          background: url("http://haloxp.com/codepen/carousel-arrow-light.png") 50% 50% / 20px no-repeat;
-        }
+        // .arrow {
+        //   background: url("http://haloxp.com/codepen/carousel-arrow-light.png") 50% 50% / 20px no-repeat;
+        // }
       }
 
       @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
           .arrow, &.light .arrow {
             background-size: 10px;
             background-position: 10px 50%;
-
           }
         }
     }
 
-    [id^="target-item"] {
-      display: none;
-    }
-
-    *:target ~ .item-1 {
-      opacity: 0;
-    }
-
-    #target-item-1:target ~ .item-1 {
+    .item-1 {
       z-index: 1;
-      opacity: 1;
       background-image: url('./sum.jpg');
+      background-origin: padding-box;
     }
-
-    #target-item-2:target ~ .item-2 {
+    
+    .item-2 {
       z-index: 2;
-      opacity: 1;
       background-image: url('./fall.jpg');
+      background-origin: padding-box;
     }
 
-    #target-item-3:target ~ .item-3 {
+    .item-3 {
       z-index: 3;
-      opacity: 1;
       background-image: url('./winter.jpg');
     }
-  }
+
+//vanish points: right 1714px, left -2133px
+    .current {
+      background-position: 0px top;
+      background-origin: padding-box;
+    }
+    
+    .next {
+      background-position: 1714px top;
+      background-origin: padding-box;
+    }
+
+    .prev {
+      background-position: -1919px top;
+      background-origin: padding-box;
+    }
+    
+}
 
 //*-desktop-*
 

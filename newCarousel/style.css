@@ -10,23 +10,20 @@
   bottom: 0;
   left: 0;
   right: 0;
-  padding: 489px 50px;
-  opacity: 0;
+  padding: 50% 50% 20% 50%;
   transition: all 1s ease-in-out;
   border: 1px solid white;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .carousel-wrapper .carousel-item .text {
   position: absolute;
   display: block;
   color: transparent;
   transition-property: color;
-  transition: color 5s;
-}
-.carousel-wrapper .carousel-item #par {
-  position: unset;
 }
 .carousel-wrapper .carousel-item .arrow {
-  position: absolute;
+  position: fixed;
   top: 0;
   display: block;
   width: 50px;
@@ -43,10 +40,7 @@
   transform: rotate(180deg);
 }
 .carousel-wrapper .carousel-item.light {
-  transition: all 2s ease-in-out;
-}
-.carousel-wrapper .carousel-item.light .arrow {
-  background: url("http://haloxp.com/codepen/carousel-arrow-light.png") 50% 50%/20px no-repeat;
+  transition: all 1s ease-in-out;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   .carousel-wrapper .carousel-item .arrow, .carousel-wrapper .carousel-item.light .arrow {
@@ -54,26 +48,31 @@
     background-position: 10px 50%;
   }
 }
-.carousel-wrapper [id^=target-item] {
-  display: none;
-}
-.carousel-wrapper *:target ~ .item-1 {
-  opacity: 0;
-}
-.carousel-wrapper #target-item-1:target ~ .item-1 {
+.carousel-wrapper .item-1 {
   z-index: 1;
-  opacity: 1;
   background-image: url("./sum.jpg");
+  background-origin: padding-box;
 }
-.carousel-wrapper #target-item-2:target ~ .item-2 {
+.carousel-wrapper .item-2 {
   z-index: 2;
-  opacity: 1;
   background-image: url("./fall.jpg");
+  background-origin: padding-box;
 }
-.carousel-wrapper #target-item-3:target ~ .item-3 {
+.carousel-wrapper .item-3 {
   z-index: 3;
-  opacity: 1;
   background-image: url("./winter.jpg");
+}
+.carousel-wrapper .current {
+  background-position: 0px top;
+  background-origin: padding-box;
+}
+.carousel-wrapper .next {
+  background-position: 1714px top;
+  background-origin: padding-box;
+}
+.carousel-wrapper .prev {
+  background-position: -1919px top;
+  background-origin: padding-box;
 }
 
 /*# sourceMappingURL=style.css.map */
